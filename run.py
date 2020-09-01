@@ -75,3 +75,9 @@ class run():
         clf.evaluate(self.test_loader)
         clf.confusion_matrix(self.test_loader.dataset)
         clf.save_to_file("save_params/")
+
+
+if __name__ == '__main__':
+    runner = run('log1')
+
+    runner.train()

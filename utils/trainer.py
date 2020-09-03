@@ -77,8 +77,8 @@ class NeuralNetworkClassifier:
                 _, predicted = torch.max(outputs, 1)
                 correct += (predicted == y).sum().float().cpu().item()
 
-                self.logger.info("loss:", loss.cpu().item(), " step:", epoch)
-                self.logger.info("accuracy", float(correct / total))
+                self.logger.info("loss: {}, step: {}".format(loss.cpu().item(), epoch))
+                self.logger.info("accuracy: {}".format(float(correct / total)))
             if validation:
                 with torch.no_grad():
                     val_correct = 0.0
@@ -95,8 +95,8 @@ class NeuralNetworkClassifier:
                         _, val_pred = torch.max(val_output, 1)
                         val_correct += (val_pred == y_val).sum().float().cpu().item()
 
-                        self.logger.info("loss:", val_loss.cpu().item(), " step:", epoch)
-                        self.logger.info("accuracy", float(val_correct / val_total))
+                        self.logger.info("loss: {}, step: {}".format(val_loss.cpu().item(), epoch))
+                        self.logger.info("accuracy: {}".format(float(val_correct / val_total)))
 
             pbar.close()
 
@@ -129,8 +129,8 @@ class NeuralNetworkClassifier:
                 running_loss += loss.cpu().item()
                 running_corrects += torch.sum(predicted == y).float().cpu().item()
 
-                self.logger.info("loss", running_loss)
-                self.logger.info("accuracy", float(running_corrects / total))
+                self.logger.info("loss: {}".format(running_loss))
+                self.logger.info("accuracy: {}".format(float(running_corrects / total)))
             pbar.close()
 
         acc = float(running_corrects / total)

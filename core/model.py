@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from ..core import modules
+from . import modules
 
 
 class EncoderLayerForSAnD(nn.Module):

@@ -9,6 +9,8 @@ from utils.trainer import NeuralNetworkClassifier
 import logging
 import logging.handlers
 
+import time
+
 
 class run():
     def __init__(self, log_file:str):
@@ -42,9 +44,9 @@ class run():
         val_ds = TensorDataset(x_val, y_val)
         test_ds = TensorDataset(x_test, y_test)
 
-        train_loader = DataLoader(train_ds, batch_size=128)
-        val_loader = DataLoader(val_ds, batch_size=128)
-        test_loader = DataLoader(test_ds, batch_size=128)
+        train_loader = DataLoader(train_ds, batch_size=32)
+        val_loader = DataLoader(val_ds, batch_size=32)
+        test_loader = DataLoader(test_ds, batch_size=32)
 
         return train_loader, val_loader, test_loader
 
@@ -78,6 +80,6 @@ class run():
 
 
 if __name__ == '__main__':
-    runner = run('log1')
+    runner = run(str(time.time()) + '.log')
 
     runner.train()

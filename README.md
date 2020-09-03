@@ -5,7 +5,9 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Warning** This code is **UNOFFICIAL**.
+**Warning** This code is **UNOFFICIAL**. <br>
+This Repository is forked from original H-Kawashima's version 'https://github.com/khirotaka/SAnD.git` <br>
+It only changes the model to run without comet and with sample data. <br>
 
 Paper: [Attend and Diagnose: Clinical Time Series Analysis Using Attention Models](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/16325/16790)
 
@@ -13,7 +15,6 @@ If you want to run this code,
 you need download some dataset and write experimenting code.
 
 ```python
-from comet_ml import Experiment
 from SAnD.core.model import SAnD
 from SAnD.utils.trainer import NeuralNetworkClassifier
 
@@ -23,15 +24,20 @@ clf.fit( ... )
 ```
 
 ## Installation
-`git clone https://github.com/khirotaka/SAnD.git`
+`git clone https://github.com/coldtomatojuice/SAnD.git`
 
 ## Requirements
-*   Python 3.6
-*   Comet.ml
+*   Python 3.6 or later
 *   PyTorch v1.1.0 or later
 
 ## Simple Usage
 Here's a brief overview of how you can use this project to help you solve the classification task.
+
+'''shell script
+$ python run.py
+'''
+
+you only need to run the script to test SAnD model
 
 ### Download this project
 First, create an empty directory.  
@@ -54,8 +60,6 @@ Remember that the input dimension to the SAnD model is basically three dimension
 This example shows how to use `torch.randn()` as a pseudo dataset.
 
 ```python
-from comet_ml import Experiment
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -78,9 +82,9 @@ train_ds = TensorDataset(x_train, y_train)
 val_ds = TensorDataset(x_val, y_val)
 test_ds = TensorDataset(x_test, y_test)
 
-train_loader = DataLoader(train_ds, batch_size=128)
-val_loader = DataLoader(val_ds, batch_size=128)
-test_loader = DataLoader(test_ds, batch_size=128)
+train_loader = DataLoader(train_ds, batch_size=32)
+val_loader = DataLoader(val_ds, batch_size=32)
+test_loader = DataLoader(test_ds, batch_size=32)
 ```
 
 Note:  

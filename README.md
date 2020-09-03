@@ -33,9 +33,9 @@ clf.fit( ... )
 ## Simple Usage
 Here's a brief overview of how you can use this project to help you solve the classification task.
 
-'''shell script
+```shell script
 $ python run.py
-'''
+```
 
 you only need to run the script to test SAnD model
 
